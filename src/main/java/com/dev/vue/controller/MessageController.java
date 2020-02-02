@@ -2,7 +2,7 @@ package com.dev.vue.controller;
 
 import com.dev.vue.model.Message;
 import com.dev.vue.model.Views;
-import com.dev.vue.repository.MessageRepo;
+import com.dev.vue.repo.MessageRepo;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
