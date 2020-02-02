@@ -19,7 +19,7 @@ Vue.component('message-form', {
         }
     },
     watch: {
-        messageAttr: function(newVal, oldVal) {
+        messageAttr: function(newVal) {
             this.text = newVal.text;
             this.id = newVal.id;
         }
@@ -60,8 +60,8 @@ Vue.component('message-row', {
         '<div>' +
             '<i>({{ message.id }})</i> {{ message.text }}' +
             '<span style="position: absolute; right: 0">' +
-                '<input type="button" value="Edit" @click="edit" />' +
-                '<input type="button" value="X" @click="del" />' +
+            '<input type="button" value="Edit" @click="edit" />' +
+            '<input type="button" value="X" @click="del" />' +
             '</span>' +
         '</div>',
     methods: {
