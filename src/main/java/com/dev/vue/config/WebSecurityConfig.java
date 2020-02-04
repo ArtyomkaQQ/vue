@@ -18,12 +18,17 @@ import java.time.LocalDateTime;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().mvcMatchers("/").permitAll()
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .antMatcher("/**")
+                .authorizeRequests()
+                .antMatchers("/", "/login**", "/js/**", "/error**").permitAll()
                 .anyRequest().authenticated()
+                .and().logout().logoutSuccessUrl("/").permitAll()
                 .and()
                 .csrf().disable();
     }
+
 
     @Bean
     public PrincipalExtractor principalExtractor(UserDetailsRepo userDetailsRepo) {
